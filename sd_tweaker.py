@@ -30,12 +30,9 @@ class WorkFrame(MainFrame):
         for checked in self.tabs.check_list[current_tab].GetChecked():
             call(self.cfg["tabs"][current_tab]["contents"][checked]["cmd"], shell=True)
 
-def without_ext():
-    basename = os.path.basename(sys.argv[0])
-    return os.path.splitext(basename)[0]
-
 if __name__ == "__main__":
-    config_json = without_ext()+".json"
+    filename, ext = os.path.splitext(os.path.basename(sys.argv[0]))
+    config_json = filename+".json"
     app = wx.App(redirect=False)
 
     try:
@@ -44,9 +41,13 @@ if __name__ == "__main__":
         cfg = {"tabs": []}
         dlg = wx.MessageDialog(None, config_json+" doesn't exists or incorrect, please go website to get help (Menu -> About)", "Can't load config", wx.OK | wx.ICON_WARNING)
         dlg.ShowModal()
-        #sys.exit(1)
 
     wnd = WorkFrame(None, cfg)
+
+    if ext == ".exe":
+        wnd.SetIcon(wx.Icon(filename+ext, wx.BITMAP_TYPE_ICO))
+    elif ext == ".py" and os.path.exists("icon.ico"):
+        wnd.SetIcon(wx.Icon("icon.ico", wx.BITMAP_TYPE_ICO))
 
     wnd.Show(True)
     app.MainLoop()

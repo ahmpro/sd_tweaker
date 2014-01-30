@@ -16,3 +16,5 @@ Contents:
 `build.exe` - example how to make single exe with py2exe and minify with UPX
 
 `setup.py` - config for py2exe
+
+`icon.ico` - icon, Designer: Everaldo Coelho

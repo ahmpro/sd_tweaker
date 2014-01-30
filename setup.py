@@ -4,7 +4,11 @@ from distutils.core import setup
 import py2exe
 
 setup(
-    windows=[{"script": "sd_tweaker.py"}],
+    windows=[{
+        "script": "sd_tweaker.py",
+        "icon_resources": [(1, "icon.ico")]
+        }
+    ],
     options={"py2exe": {
         "dll_excludes": ["MSVCP90.dll", "w9xpopen.exe"],
         "compressed": True,
