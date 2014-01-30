@@ -26,8 +26,13 @@ class MainFrame(wx.Frame):
                 wx.DefaultSize,
                 map(lambda x: x["desc"], tab["contents"]),
                 0
-            )) # todo: implement default checked(cfg has param, but don't use it)
-            sizer.Add(self.tabs.check_list[-1], 1, wx.ALL|wx.EXPAND, 5)
+            ))
+
+            added_listbox = self.tabs.check_list[-1]
+            for i in xrange(len(tab["contents"])):
+                added_listbox.Check(i, check=tab["contents"][i]["checked"])
+
+            sizer.Add(added_listbox, 1, wx.ALL|wx.EXPAND, 5)
 
             panel.SetSizer(sizer)
             panel.Layout()
