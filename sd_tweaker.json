@@ -1,0 +1,69 @@
+{
+    "tabs": [
+        {
+            "title": "Tab 1",
+            "contents": [
+                {
+                    "checked": true,
+                    "desc":  "какой-то скрипт 1",
+                    "cmd": "echo script1 ;) >> C:\\123.txt"
+                },
+                {
+                    "checked": false,
+                    "desc":  "какой-то скрипт 2",
+                    "cmd": "echo script2 ;) >> C:\\123.txt"
+                }
+            ]
+        },
+        {
+            "title": "Tab 2",
+            "contents": [
+                {
+                    "checked": true,
+                    "desc":  "какой-то скрипт 3",
+                    "cmd": "echo script3 ;) >> C:\\123.txt"
+                },
+                {
+                    "checked": false,
+                    "desc":  "какой-то скрипт 4",
+                    "cmd": "echo script4 ;) >> C:\\123.txt"
+                },
+                {
+                    "checked": false,
+                    "desc":  "какой-то скрипт 5",
+                    "cmd": "echo script5 ;) >> C:\\123.txt"
+                }
+            ]
+        },
+        {
+            "title": "Tab 3",
+            "contents": [
+                {
+                    "checked": true,
+                    "desc":  "какой-то скрипт 6",
+                    "cmd": "echo script6 ;) >> C:\\123.txt"
+                },
+                {
+                    "checked": false,
+                    "desc":  "какой-то скрипт 7",
+                    "cmd": "pause"
+                }
+            ]
+        },
+        {
+            "title": "Tab 4",
+            "contents": [
+                {
+                    "checked": true,
+                    "desc":  "какой-то скрипт 6",
+                    "cmd": "echo script6 ;) >> C:\\123.txt"
+                },
+                {
+                    "checked": false,
+                    "desc":  "какой-то скрипт 7",
+                    "cmd": "echo script7 ;) >> C:\\123.txt"
+                }
+            ]
+        }
+    ]
+}
