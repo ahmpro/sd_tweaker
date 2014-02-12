@@ -4,7 +4,7 @@ from distutils.core import setup
 import py2exe
 
 setup(
-    version = "0.1.1",
+    version = "0.2",
     description = "Simple config-based tweaker",
     name = "SD Tweaker",
     windows=[{

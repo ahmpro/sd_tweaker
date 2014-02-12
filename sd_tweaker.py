@@ -18,7 +18,7 @@ class WorkFrame(MainFrame):
         info = wx.AboutDialogInfo()
 
         info.SetName("SD Tweaker")
-        info.SetVersion("0.1")
+        info.SetVersion("0.2")
         info.SetDescription("Simple config-based tweaker. Source and readme:")
         info.SetCopyright("(C) 2014 ahmpro (ahmpro@rslayers.com)")
         info.SetWebSite("http://www.github.com/ahmpro/sd_tweaker")
@@ -36,11 +36,25 @@ if __name__ == "__main__":
     app = wx.App(redirect=False)
 
     try:
-        cfg = json.load(open(config_json))
-    except:
+        f = open(config_json, 'r')
+        cfg = json.load(f)
+        f.close()
+    except IOError, e:
         cfg = {"tabs": []}
-        dlg = wx.MessageDialog(None, config_json+" doesn't exists or incorrect, please go website to get help (Menu -> About)", "Can't load config", wx.OK | wx.ICON_WARNING)
-        dlg.ShowModal()
+        wx.MessageDialog(
+            None,
+            "Can't open %s\nError #%d %s\nYou may go website to get help (Menu -> About)" % (e.filename, e.errno, e.strerror),
+            "Can't open file",
+            wx.OK | wx.ICON_WARNING
+        ).ShowModal()
+    except ValueError, e:
+        cfg = {"tabs": []}
+        wx.MessageDialog(
+            None,
+            "Can't load config from %s\n%s\nYou may go website to get help (Menu -> About)" % (config_json, e.message),
+            "Can't load config",
+            wx.OK | wx.ICON_WARNING
+        ).ShowModal()
 
     wnd = WorkFrame(None, cfg)
 
