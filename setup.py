@@ -4,13 +4,16 @@ from distutils.core import setup
 import py2exe
 
 setup(
+    version = "0.1",
+    description = "Simple config-based tweaker",
+    name = "SD Tweaker",
     windows=[{
         "script": "sd_tweaker.py",
-        "icon_resources": [(1, "icon.ico")]
+        "icon_resources": [(1, "icon.ico")],
+        "uac_info": "requireAdministrator",
         }
     ],
     options={"py2exe": {
-        "dll_excludes": ["MSVCP90.dll", "w9xpopen.exe"],
         "compressed": True,
         "bundle_files": 1
         }
